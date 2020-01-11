@@ -1,0 +1,13 @@
+{ "promoProducto":[
+    {
+      "id":1,
+      "url": "Bn1"
+    },{
+      "id":2,
+      "url": "Bn2"
+    },{
+      "id":3,
+      "url": "Bn3"
+    }
+  ]
+  }

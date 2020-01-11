@@ -1,0 +1,36 @@
+{ "promociones":[
+  {
+    "id":1,
+    "descripcion":"Lleve los 2 a mitad de precio!",
+    "url": "Promo1"
+  },{
+    "id":2,
+    "descripcion":"Lleve el Shampoo a mitad de precio con una compra superior a 5$!",
+    "url": "Promo2"
+  },{
+    "id":3,
+    "descripcion":"Mantenga la limpieza de su bebé a mitad de precio.",
+    "url": "Promo3"
+  },{
+    "id":4,
+    "descripcion":"Cuida tu delicada piel al 20% de dscto",
+    "url": "Promo4"
+  },{
+    "id":5,
+    "descripcion":"Ponle Fin a tus dolores",
+    "url": "Promo5"
+  },{
+    "id":6,
+    "descripcion":"Cuida tu hígado , vive más.",
+    "url": "Promo6"
+  },{
+    "id":7,
+    "descripcion":"Lleva un mejor cuidado para la nalguita de tu bebé.",
+    "url": "Promo7"
+  },{
+    "id":8,
+    "descripcion":"Sin sombrero no hay vaquero.",
+    "url": "Promo8"
+  }
+]
+}
