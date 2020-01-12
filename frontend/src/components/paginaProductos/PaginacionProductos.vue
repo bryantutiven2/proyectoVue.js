@@ -42,7 +42,7 @@
           </b-button>
           <b-button
               type="button"
-              v-for="pageNumber in pages.slice(page-1, limitePage)" :key="pageNumber"
+              v-for="pageNumber in pages" :key="pageNumber"
               @click="page=pageNumber"
               variant="light"
               class=" bg-white text-dark">
@@ -80,7 +80,8 @@
           page: 1,
           limitePage: 8,
           totalPaginas: 0, //perPage
-          pages: []
+          pages: [],
+          numeracion:[]
       }
     },
     methods:{

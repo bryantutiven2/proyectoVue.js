@@ -4,7 +4,8 @@ import Inicio from './views/Inicio.vue'
 import Nosotros from './views/Nosotros.vue'
 import Noticias from './components/paginaNoticias/NoticiasGeneral.vue'
 import Productos from './views/Productos.vue'
-//import Admin from './././backend/src/pages/Dashboard.vue'
+import IniciarSesion from './views/IniciarSesion.vue'
+import Registrar from './views/Registrar.vue'
 
 Vue.use(Router)
 
@@ -33,7 +34,18 @@ export default new Router({
             path: '/productos',
             name: 'productos',
             component: Productos
-        }/*,
+        },
+        {
+            path: '/iniciarSesion',
+            name: 'IniciarSesion',
+            component: IniciarSesion
+        },
+        {
+            path: '/registrar',
+            name: 'Registrar',
+            component: Registrar
+        }
+        /*,
         {
             path: '/admin',
             name: 'admin',

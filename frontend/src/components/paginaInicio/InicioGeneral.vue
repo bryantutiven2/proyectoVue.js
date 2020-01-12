@@ -24,7 +24,7 @@
     
     export default {
         name: 'InicioGeneral',
-            components: {
+        components: {
             Farmacia,
             Nav,
             Horarios,

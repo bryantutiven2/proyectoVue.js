@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id=" navbarResponsive" >
-        <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav mx-auto" >
           <li class="nav-item active px-lg-4">
             <router-link class="nav-link text-uppercase text-expanded" to="/">Inicio
             <span class="sr-only">(current)</span> </router-link>
@@ -20,8 +20,11 @@
           <li class="nav-item px-lg-4">
             <router-link class="nav-link text-uppercase text-expanded " to="/productos">Productos</router-link>
           </li>
-          <li class="nav-item px-lg-4" id="noMostrar">
-            <router-link class="nav-link text-uppercase text-expanded " to="/noticias">Iniciar Sesión</router-link>
+          <li class="nav-item px-lg-4">
+            <router-link class="nav-link text-uppercase text-expanded " to="/iniciarSesion">Iniciar Sesión</router-link>
+          </li>
+          <li class="nav-item px-lg-4">
+            <router-link class="nav-link text-uppercase text-expanded " to='/registrar'>Registrar</router-link>
           </li>
         </ul>
       </div>
@@ -39,4 +42,5 @@ export default {
 }
 </script>
 <style scoped>
+    
 </style>
