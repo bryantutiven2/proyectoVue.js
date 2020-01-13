@@ -19,7 +19,7 @@
                         </div>
                         <br>
                         <div id="botonSesion">
-                            <input type="button" id="iniciar-sesion" value="Iniciar Sesión" class="btn btn-success btn-sm col-sm-7" >
+                            <input type="button" id="iniciar-sesion" value="Iniciar Sesión" class="btn btn-success btn-lg-1 col-sm-7" >
                         </div>
                     </form>
                 </div>

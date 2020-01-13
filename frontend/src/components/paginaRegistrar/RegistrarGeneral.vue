@@ -3,6 +3,9 @@
         <Farmacia />
         <Nav />
         <br>
+        <Stepper />
+        <br>
+        <br>
         <Footer />
   </div>
 </template>
@@ -11,6 +14,7 @@
 
     import Farmacia from './../principales/Farmacia.vue'
     import Nav from './../principales/Nav.vue'
+    import Stepper from './stepperRegistrar.vue'
     import Footer from './../principales/Footer.vue'
  
     export default {
@@ -18,6 +22,7 @@
         components: {
             Farmacia,
             Nav,
+            Stepper,
             Footer
         },
         data(){
