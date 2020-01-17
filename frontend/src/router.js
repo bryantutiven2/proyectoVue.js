@@ -6,7 +6,7 @@ import Noticias from './components/paginaNoticias/NoticiasGeneral.vue'
 import Productos from './views/Productos.vue'
 import IniciarSesion from './views/IniciarSesion.vue'
 import Registrar from './views/Registrar.vue'
-
+import Admin from './components/paginaAdmin/adminGeneral.vue'
 Vue.use(Router)
 
 
@@ -45,11 +45,11 @@ export default new Router({
             name: 'Registrar',
             component: Registrar
         }
-        /*,
+        ,
         {
             path: '/admin',
             name: 'admin',
             component: Admin
-        }*/
+        }
     ]
 })

@@ -26,6 +26,9 @@
           <li class="nav-item px-lg-4">
             <router-link class="nav-link text-uppercase text-expanded " to='/registrar'>Registrar</router-link>
           </li>
+          <li class="nav-item px-lg-4">
+            <router-link class="nav-link text-uppercase text-expanded " to='/admin'>Admin</router-link>
+          </li>
         </ul>
       </div>
     </div>

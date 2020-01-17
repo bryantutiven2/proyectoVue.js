@@ -10,15 +10,15 @@
                         <div class="stepwizard-row setup-panel">
                         <div class="stepwizard-step">
                             <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-                            <p>Personal</p>
+                            <p class="tNegrita">Personal</p>
                         </div>
                         <div class="stepwizard-step">
                             <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                            <p>Cuenta</p>
+                            <p class="tNegrita">Cuenta</p>
                         </div>
                         <div class="stepwizard-step">
                             <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                            <p>Confirmar</p>
+                            <p class="tNegrita">Confirmar</p>
                         </div>
                         </div>
                     </div>
@@ -84,7 +84,10 @@
 <script>
     const $ = require('jquery')
     window.$ = $
-    $(document).ready(function () {
+    
+    export default {
+    mounted(){
+        $(document).ready(function () {
         var navListItems = $('div.setup-panel div a'),
           allWells = $('.setup-content'),
           allNextBtn = $('.nextBtn');
@@ -126,12 +129,6 @@
 
   $('div.setup-panel div a.btn-primary').trigger('click');
 }) 
-    export default {
-    
-    data () {
-        return {
-        
-        }
     }
        
 }
@@ -182,5 +179,8 @@ body {
     font-size: 12px;
     line-height: 1.428571429;
     border-radius: 15px;
+}
+.tNegrita{
+    font-weight: bold
 }
 </style>
