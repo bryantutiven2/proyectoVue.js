@@ -212,7 +212,7 @@ class VentaDetalle(APIView):
 
 # Create your views VentaProducto
 
-class PuntoRecoleccionList(APIView):
+class VentaProductoList(APIView):
     def get(self, request, format=None):
         ventaProducto1 = ventaProducto.objects.all()
         serializer = ventaProductoSerializer(ventaProducto1, many=True)

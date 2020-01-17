@@ -10,7 +10,6 @@
             <br><br><br><br><br><br><br><br><br>
             <Mapa />
         </div>
-        <input type="text " @click="cargar">
         <div>
             {{info}}
         </div>
@@ -25,7 +24,7 @@
     import Horarios from './Horarios.vue'
     import Mapa from './SeccionMapa.vue'
     import Footer from './../principales/Footer.vue'
-
+    import axios from 'axios'
     export default {
         name: 'InicioGeneral',
         components: {
@@ -35,18 +34,24 @@
             Mapa,
             Footer
         },
+        created(){
+            this.cargar()
+        },
         data () {
             return {
-            info: null
+            info: []
             }
         },
         methods:{
             cargar () {
             //axios.get('http://127.0.0.1:8000/usuarios/')
             //.then(response => (this.info = response))
-            this.axios.get('http://localhost:8000/usuarios/').then((response) => {
+            axios.get('http://localhost:8000/usuarios/').then((response) => {
                 this.info=response.data;
             //console.log(response.data);
+            })
+            .catch((e)=>{
+                console.log(e)
             })
         }
         }
