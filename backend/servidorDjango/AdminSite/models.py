@@ -39,7 +39,7 @@ class venta(models.Model):
     idVenta = models.AutoField(primary_key=True, unique=True)
     total = models.FloatField(null=True, blank=True, default=None)
     factura = models.CharField(max_length=100)
-    idCliente =  models.ForeignKey(cliente, on_delete=models.PROTECT)
+    idCliente =  models.ForeignKey(cliente, on_delete=models.PROTECT, null=True, default=None)
     idUsuario = models.ForeignKey(usuario, on_delete=models.PROTECT)
     idPago = models.ForeignKey(pago, on_delete=models.PROTECT)
 

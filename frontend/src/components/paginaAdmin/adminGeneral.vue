@@ -1,5 +1,5 @@
 <template>
-    <div class="page-wrapper">
+    <div>
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
@@ -10,24 +10,24 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to=''><i class="fas fa-table"></i>Ventas</router-link>
+                            <router-link class="nav-link text-uppercase text-expanded " to='/ventasAdmin'><i class="fas fa-table"></i>Ventas</router-link>
                             
                         </li>
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to=''><i class="fas fa-chart-bar"></i>Estadisticas</router-link>
+                            <router-link class="nav-link text-uppercase text-expanded " to='/estadisticasAdmin'><i class="fas fa-chart-bar"></i>Estadisticas</router-link>
                            
                         </li>
                         
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to=''><i class="fab fa-product-hunt"></i>Productos</router-link>
+                            <router-link class="nav-link text-uppercase text-expanded " to='/productosAdmin'><i class="fab fa-product-hunt"></i>Productos</router-link>
                         
                         </li>
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to=''><i class="fas fa-users"></i>Cliente</router-link>
+                            <router-link class="nav-link text-uppercase text-expanded " to='/clienteAdmin'><i class="fas fa-users"></i>Cliente</router-link>
                         
                         </li>
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to=''><i class="fas fa-users"></i>Reporte</router-link>
+                            <router-link class="nav-link text-uppercase text-expanded " to='/reporteAdmin'><i class="fas fa-users"></i>Reporte</router-link>
                         
                         </li>
                     </ul>
@@ -59,10 +59,6 @@
                     </div>
                 </div>
             </header>
-        </div>
-
-        <div class="main-content">
-            <!-- Aqui va el contenido-->
         </div>
     </div>
 </template>

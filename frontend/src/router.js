@@ -7,6 +7,11 @@ import Productos from './views/Productos.vue'
 import IniciarSesion from './views/IniciarSesion.vue'
 import Registrar from './views/Registrar.vue'
 import Admin from './components/paginaAdmin/adminGeneral.vue'
+import clienteAdmin from './components/paginaAdmin/clienteAdmin.vue'
+import estadisticasAdmin from './components/paginaAdmin/estadisticasAdmin.vue'
+import productosAdmin from './components/paginaAdmin/productosAdmin.vue'
+import reporteAdmin from './components/paginaAdmin/reporteAdmin.vue'
+import ventasAdmin from './components/paginaAdmin/ventasAdmin.vue'
 Vue.use(Router)
 
 
@@ -50,6 +55,31 @@ export default new Router({
             path: '/admin',
             name: 'admin',
             component: Admin
-        }
+        },
+        {
+            path: '/clienteAdmin',
+            name: 'clienteAdmin',
+            component: clienteAdmin
+        },
+        {
+            path: '/estadisticasAdmin',
+            name: 'estadisitcasAdmin',
+            component: estadisticasAdmin
+        },
+        {
+            path: '/productosAdmin',
+            name: 'productosAdmin',
+            component: productosAdmin
+        },
+        {
+            path: '/reporteAdmin',
+            name: 'reporteAdmin',
+            component: reporteAdmin
+        },
+        {
+            path: '/ventasAdmin',
+            name: 'ventasAdmin',
+            component: ventasAdmin
+        },
     ]
 })

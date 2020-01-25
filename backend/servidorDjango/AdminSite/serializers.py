@@ -9,7 +9,7 @@ class usuarioSerializer(serializers.ModelSerializer):
 class clienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = cliente
-        fields = ('idUsuario', 'cedula', 'nombre', 'apellido', 'telefono', 'edad', 'direccion')
+        fields = ('idCliente', 'cedula', 'nombre', 'apellido', 'telefono', 'direccion')
 
 class productoSerializer(serializers.ModelSerializer):
     class Meta:
