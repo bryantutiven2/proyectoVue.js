@@ -13,8 +13,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueGoodTablePlugin from 'vue-good-table';
 import 'vue-good-table/dist/vue-good-table.css'
+import VueGoogleCharts from 'vue-google-charts'
 
 
+Vue.use(VueGoogleCharts)
 Vue.use(VueGoodTablePlugin);
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)

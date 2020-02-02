@@ -8,7 +8,18 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>Estadisticas</p>
+                                    <h1 id="tituloP">Mis Estadisticas</h1>
+                                    <h3>Ventas Realizadas por Mes</h3>
+                                    <div id="grafico">
+                                        <GChart
+                                            :settings="{packages: ['bar']}"    
+                                            :data="chartData"
+                                            :options="chartOptions"
+                                            :createChart="(el, google) => new google.charts.Bar(el)"
+                                            @ready="onChartReady"
+                                        />
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -20,14 +31,135 @@
 </template>
 
 <script>
+import axios from 'axios'
 import adminGeneral from './adminGeneral'
+import { GChart } from 'vue-google-charts'
 export default {
     components:{
-        adminGeneral
+        adminGeneral,
+        GChart
+    },
+    data(){
+        return{
+            chartsLib: null,
+            pagos:[],
+            chartData: [
+                ['Mes', 'Ventas Realizadas'],
+                ['Enero',0],
+                ['Febrero',0],
+                ['Marzo',0],
+                ['Abril',0],
+                ['Mayo',0],
+                ['Junio',0],
+                ['Julio',0],
+                ['Agosto',0],
+                ['Septiembre',0],
+                ['Octubre',0],
+                ['Noviembre',0],
+                ['Diciembre',0],
+            ]
+        }
+    },
+    created(){
+        this.cargar()
+    },
+    computed:{
+        chartOptions () {
+            this.ventasPorMes();
+            if (!this.chartsLib) return null
+            return this.chartsLib.charts.Bar.convertOptions({
+                chart: {
+                    title: 'N° de ventas realizadas por Mes',
+
+                },
+                width: 800,
+                fillOpacity: 0.3,
+                bars: 'horizontal', // Required for Material Bar Charts.
+                hAxis: { format: 'decimal' },
+                height: 400,
+                colors: ['#1b9e77']
+            })
+        }
+    },
+    methods:{
+        onChartReady (chart, google) {
+            this.chartsLib = google
+        },
+        async cargar () {
+            try {
+                const response = await axios.get('http://localhost:8000/pagos/')
+                this.pagos=response.data;
+                console.log(response.data);
+            }
+            catch(e){
+                console.log(e)
+            }
+        },
+        ventasPorMes(){
+            var pagos = this.pagos
+            for(var i=0; i<pagos.length; i++){
+                var splitMes = pagos[i].fechaHora.split("-");
+                var digitoMes = splitMes[1];
+                if(digitoMes=='01'){
+                    this.chartData[1][1]+=1;
+                }
+                else if(digitoMes=='02'){
+                    this.chartData[2][1]+=1;
+                }
+                else if(digitoMes=='03'){
+                    this.chartData[3][1]+=1;
+                }
+                else if(digitoMes=='04'){
+                    this.chartData[4][1]+=1;
+                }
+                else if(digitoMes=='05'){
+                    this.chartData[5][1]+=1;
+                }
+                else if(digitoMes=='06'){
+                    this.chartData[6][1]+=1;
+                }
+                else if(digitoMes=='07'){
+                    this.chartData[7][1]+=1;
+                }
+                else if(digitoMes=='08'){
+                    this.chartData[8][1]+=1;
+                }
+                else if(digitoMes=='09'){
+                    this.chartData[1][8]+=1;
+                }
+                else if(digitoMes=='10'){
+                    this.chartData[10][1]+=1;
+                }
+                else if(digitoMes=='11'){
+                    this.chartData[11][1]+=1;
+                }
+                else if(digitoMes=='12'){
+                    this.chartData[12][1]+=1;
+                }
+                console.log(pagos[i].fechaHora);
+            }
+            console.log(this.chartData)
+        }
+    },
+    mounted(){
+        
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+    #tituloP{
+        text-align: center;
+        font-weight: bold;
+    }
+    #botones{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 60px;
+    }
+    #grafico{
+        /*display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;*/
+    }
 </style>
