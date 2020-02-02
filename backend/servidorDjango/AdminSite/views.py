@@ -106,7 +106,7 @@ class ProductosDetalle(APIView):
 
     def get_object(self, pk):
         try:
-            return producto.objects.get(usuario=pk)
+            return producto.objects.get(idProducto=pk)
         except producto.DoesNotExist:
             raise Http404
 

@@ -11,7 +11,11 @@ import VueRouter from 'vue-router'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
- 
+import VueGoodTablePlugin from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
+
+
+Vue.use(VueGoodTablePlugin);
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)

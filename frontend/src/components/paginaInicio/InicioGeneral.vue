@@ -14,15 +14,6 @@
             {{info}}
         </div>
         <Footer />
-        <form action="">
-            <label>Nombres</label>
-             <input type="text"  placeholder="id" required>
-             <label>direccion</label>
-             <input type="text"  placeholder="direccion" required>
-             <label>dueno</label>
-             <input type="text"  placeholder="dueno" required>
-             <button type="submit" class="btn btn-primary" @click="enviar">Enviar Datos</button>
-        </form>
     </div>
     
 
@@ -44,55 +35,22 @@
             Footer
         },
         created(){
-            this.cargar(),
-            this.enviar(),
-            this.delete(),
-            this.put()
+            this.cargar()
         },
         data () {
             return {
             info: []
             }
         },
-        methods:{/*
-            put(){
-                axios.put('http://localhost:8000/casas/2' + '1',
-                    {descripcion: 'taller3'},
-                    {dueno: 'bryanT'
-                }).then(response => {
-                    this.result.splice(id, '1')
-                    console.log(this.result);
-                });
-            },
-
-            delete(){
-                axios.delete('http://localhost:8000/casas/1' )
-                .then(response => {
-                    this.result.splice(id, '1')
-                    console.log(this.result);
-                });
-            },
-            enviar(){
-                let currentObj = this;
-                this.axios.post('http://localhost:8000/casas/', {
-                    id:'10',
-                    descripcion: 'casaprueba',
-                    dueno: 'taller3'
-                })
-                .then(function (response) {
-                    currentObj.output = response.data;
-                })
-                .catch(function (error) {
-                    currentObj.output = error;
-                });
-            }*/,
+        methods:{
             cargar () {
-            axios.get('http://localhost:8080/usuarios/').then((response) => {
+            axios.get('http://localhost:8000/usuarios/')
+            .then((response) => {
                 this.info=response.data;
                 console.log(response.data);
             })
             .catch((e)=>{
-                console.log(e)
+                console.log(e);
             })
         }
         }
