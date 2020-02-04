@@ -22,3 +22,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Para envio de Email, usar el comando mencionado en el .\frontend\
+```
+npm install --save emailjs-com
+```
