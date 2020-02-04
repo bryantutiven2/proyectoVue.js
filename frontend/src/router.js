@@ -6,6 +6,10 @@ import Noticias from './components/paginaNoticias/NoticiasGeneral.vue'
 import Productos from './views/Productos.vue'
 import IniciarSesion from './views/IniciarSesion.vue'
 import Registrar from './views/Registrar.vue'
+import Cliente from './components/paginaCliente/clienteGeneral.vue'
+import compraCliente from './components/paginaCliente/compraCliente.vue'
+import perfilCliente from './components/paginaCliente/perfilCliente.vue'
+import estadisticasCliente from './components/paginaCliente/estadisticasCliente.vue'
 import Admin from './components/paginaAdmin/adminGeneral.vue'
 import clienteAdmin from './components/paginaAdmin/clienteAdmin.vue'
 import estadisticasAdmin from './components/paginaAdmin/estadisticasAdmin.vue'
@@ -81,5 +85,25 @@ export default new Router({
             name: 'ventasAdmin',
             component: ventasAdmin
         },
+        {
+            path: '/clienteGeneral',
+            name: 'clienteGeneral',
+            component: Cliente
+        },
+        {
+            path: '/compraCliente',
+            name: 'compraCliente',
+            component: compraCliente
+        },
+        {
+            path: '/perfilCliente',
+            name: 'perfilCliente',
+            component: perfilCliente
+        },
+        {
+            path: '/estadisticasCliente',
+            name: 'estadisticasCliente',
+            component: estadisticasCliente
+        }
     ]
 })
