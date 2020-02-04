@@ -9,15 +9,19 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1 id="tituloP">Mis Estadisticas</h1>
-                                    <h3>Ventas Realizadas por Mes</h3>
+                                    <br>
                                     <div id="grafico">
-                                        <GChart
-                                            :settings="{packages: ['bar']}"    
-                                            :data="chartData"
-                                            :options="chartOptions"
-                                            :createChart="(el, google) => new google.charts.Bar(el)"
-                                            @ready="onChartReady"
-                                        />
+                                        <div>
+                                            <h4>Ventas Realizadas por Mes</h4>
+                                            <br>
+                                            <GChart
+                                                :settings="{packages: ['bar']}"    
+                                                :data="chartData"
+                                                :options="chartOptions"
+                                                :createChart="(el, google) => new google.charts.Bar(el)"
+                                                @ready="onChartReady"
+                                            />
+                                        </div>
                                     </div>
                                     
                                 </div>
@@ -44,19 +48,19 @@ export default {
             chartsLib: null,
             pagos:[],
             chartData: [
-                ['Mes', 'Ventas Realizadas'],
-                ['Enero',0],
-                ['Febrero',0],
-                ['Marzo',0],
-                ['Abril',0],
-                ['Mayo',0],
-                ['Junio',0],
-                ['Julio',0],
-                ['Agosto',0],
-                ['Septiembre',0],
-                ['Octubre',0],
-                ['Noviembre',0],
-                ['Diciembre',0],
+                ['\n', ''],
+                ['Ene',0],
+                ['Feb',0],
+                ['Mar',0],
+                ['Abr',0],
+                ['May',0],
+                ['Jun',0],
+                ['Jul',0],
+                ['Ago',0],
+                ['Sep',0],
+                ['Oct',0],
+                ['Nov',0],
+                ['Dic',0],
             ]
         }
     },
@@ -69,14 +73,14 @@ export default {
             if (!this.chartsLib) return null
             return this.chartsLib.charts.Bar.convertOptions({
                 chart: {
-                    title: 'N° de ventas realizadas por Mes',
+                    title: '\n',
 
                 },
-                width: 800,
+                width: 450,
                 fillOpacity: 0.3,
                 bars: 'horizontal', // Required for Material Bar Charts.
                 hAxis: { format: 'decimal' },
-                height: 400,
+                height: 370,
                 colors: ['#1b9e77']
             })
         }
@@ -157,9 +161,9 @@ export default {
         grid-template-columns: repeat(3,1fr);
         grid-gap: 60px;
     }
-    #grafico{
-        /*display: grid;
+    #grafico{ 
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 20px;*/
+        grid-gap: 20px;
     }
 </style>
