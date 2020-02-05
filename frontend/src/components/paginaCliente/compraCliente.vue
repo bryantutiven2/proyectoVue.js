@@ -50,6 +50,11 @@ import clienteGeneral from './clienteGeneral'
 export default {
     components:{
         clienteGeneral
+    },
+    data(){
+        return{
+            idUser: this.$route.params.idUser,
+        }
     }
 }
 </script>

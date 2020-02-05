@@ -9,19 +9,16 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-2 float-left text-center"> 
-                                        <img src="./../../assets/img/image.png" class="img-thumbnail " alt="Bienvenido" />
-                                        <h6><strong>@jupgiuv</strong></h6>
+                                        <img src="./../../assets/img/user1.png" class="img-thumbnail " alt="Bienvenido" />                                        
                                     </div>
                                     <div class="col-md-10 float-right">
                                         <h1 class="text-center "><u>Información Personal</u></h1>
-                                        <p><strong>Datos: </strong> Juana Piguave</p>
-                                        <p><strong>Sexo: </strong>Masculino</p>
-                                        <p><strong>Cédula: </strong>0987456328</p>
-                                        <p><strong>Edad: </strong>22</p>
-                                        <p><strong>Correo: </strong>jogv@gmail.com</p>
-                                        <pre>
-                                            {{$data}}
-                                        </pre>
+                                        <p><strong>Datos: </strong> {{this.usuarios.nombre}} {{this.usuarios.apellido}}</p>
+                                        <p><strong>Teléfono: </strong>{{this.usuarios.telefono}}</p>
+                                        <p><strong>Cédula: </strong> {{this.usuarios.cedula}}</p>
+                                        <p><strong>Edad: </strong>{{this.usuarios.edad}}</p>
+                                        <p><strong>Correo: </strong>{{this.usuarios.correo}}</p>
+                                        <p><strong>Dirección: </strong>{{this.usuarios.direccion}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -41,6 +38,7 @@ export default {
         clienteGeneral
     },data(){
         return{
+            idUser: this.$route.params.idUser,
             //clienteId: this.$route.params.clienteId,
             usuarios:[]
         }
@@ -52,7 +50,7 @@ export default {
     methods:{
         async cargar () {
             try {
-                const response = await axios.get('http://localhost:8000/usuarios/')
+                const response = await axios.get('http://localhost:8000/usuarios/'+this.idUser+"/")
                 this.usuarios=response.data;
                 //console.log(response.data);
             }

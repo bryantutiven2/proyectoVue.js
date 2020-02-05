@@ -55,7 +55,37 @@
         },
         created(){
             this.cargar()
-        }, methods:{
+        },
+        mounted() {
+            /*if (localStorage.getItem('usuarios')) {
+                try {
+                    this.usuarios = JSON.parse(localStorage.getItem('usuarios'));
+                } catch(e) {
+                    localStorage.removeItem('usuarios');
+                    }
+                }*/
+            /*if (localStorage.user) {
+            this.user = localStorage.user;
+            }
+            if (localStorage.clave) {
+            this.clave = localStorage.clave;
+            }*/
+        }, 
+        methods:{
+            /*addUser() {
+                this.usuarios.push(this.user, this.clave);
+                this.user = '';
+                this.clave = '';
+                this.saveUser();
+            },
+            removeUser(x) {
+                this.usuarios.splice(x, 1);
+                this.saveUser();
+            },
+            saveUser() {
+                const parsed = JSON.stringify(this.usuarios);
+                localStorage.setItem('usuarios', parsed);
+            },*/
             redirigirVentana(){
                 let bandera=false
                 for (let usuario of this.usuarios){
@@ -63,7 +93,10 @@
                         console.log(usuario.usuario)
                         console.log(usuario.edad)
                         bandera=true
-                        this.$router.push("/perfilCliente") 
+                        //this.addUser()
+                        /*localStorage.user = this.user;
+                        localStorage.clave = this.clave;*/
+                        this.$router.push("/perfilCliente/"+usuario.usuario) 
                     }
                 }
                 if(!bandera)

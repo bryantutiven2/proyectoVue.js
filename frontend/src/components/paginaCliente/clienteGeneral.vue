@@ -10,16 +10,16 @@
                 <nav class="navbar-sidebar" >
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to='/perfilCliente'><i class="fas fa-table"></i>Perfil</router-link>
+                            <router-link class="nav-link text-uppercase text-expanded " :to="{name:'perfilCliente', params:this.idUser}" ><i class="fas fa-table"></i>Perfil</router-link>
                             
                         </li>
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to='/estadisticasCliente'><i class="fas fa-chart-bar"></i>Estadisticas</router-link>
+                            <router-link class="nav-link text-uppercase text-expanded " :to="{name:'estadisticasCliente', params:this.idUser}"><i class="fas fa-chart-bar"></i>Estadisticas</router-link>
                            
                         </li>
                         
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to='/compraCliente'><i class="fab fa-product-hunt"></i>Compras</router-link>
+                            <router-link class="nav-link text-uppercase text-expanded " :to="{name:'compraCliente', params:this.idUser}"><i class="fab fa-product-hunt"></i>Compras</router-link>
                         
                         </li>
                         
@@ -43,8 +43,8 @@
                                             <img src="./../../assets/img/user.png" alt="usuario" />
                                         </div>
                                         <div class="content">
-                                            <h4>Juana Piguave</h4>
-                                            <router-link class="text-uppercase text-expanded " to='/'><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</router-link>
+                                            <h4>@{{this.idUser}}</h4>
+                                            <button v-on:click="di('Cerraste sesión')"><i class="fas fa-sign-out-alt" ></i>Cerrar Sesión</button>
                                         </div>
                                     </div>
                                 </div>
@@ -58,8 +58,21 @@
 </template>
 
 <script>
+    //const $ = require('jquery')  
+    //window.$ = $
     export default {
-
+        data(){
+            return{
+                idUser: this.$route.params.idUser,
+                usuarios:[]
+            }
+        },
+        methods:{            
+            di: function (mensaje) {
+                alert(mensaje)
+                this.$router.push("/iniciarSesion") 
+            }
+        }
     }
 </script>
 

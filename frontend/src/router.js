@@ -86,22 +86,22 @@ export default new Router({
             component: ventasAdmin
         },
         {
-            path: '/clienteGeneral',
+            path: '/clienteGeneral/:idUser',
             name: 'clienteGeneral',
             component: Cliente
         },
         {
-            path: '/compraCliente',
+            path: '/compraCliente/:idUser',
             name: 'compraCliente',
             component: compraCliente
         },
         {
-            path: '/perfilCliente',
+            path: '/perfilCliente/:idUser',
             name: 'perfilCliente',
             component: perfilCliente
         },
         {
-            path: '/estadisticasCliente',
+            path: '/estadisticasCliente/:idUser',
             name: 'estadisticasCliente',
             component: estadisticasCliente
         }
