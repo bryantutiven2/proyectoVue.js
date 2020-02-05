@@ -19,6 +19,9 @@
                                         <p><strong>Cédula: </strong>0987456328</p>
                                         <p><strong>Edad: </strong>22</p>
                                         <p><strong>Correo: </strong>jogv@gmail.com</p>
+                                        <pre>
+                                            {{$data}}
+                                        </pre>
                                     </div>
                                 </div>
                             </div>
@@ -31,10 +34,32 @@
 </template>
 
 <script>
+import axios from 'axios'
 import clienteGeneral from './clienteGeneral'
 export default {
     components:{
         clienteGeneral
+    },data(){
+        return{
+            //clienteId: this.$route.params.clienteId,
+            usuarios:[]
+        }
+
+    },
+    created(){
+        this.cargar()
+    },
+    methods:{
+        async cargar () {
+            try {
+                const response = await axios.get('http://localhost:8000/usuarios/')
+                this.usuarios=response.data;
+                //console.log(response.data);
+            }
+            catch(e){
+                console.log(e)
+            }
+        }
     }
 }
 </script>
