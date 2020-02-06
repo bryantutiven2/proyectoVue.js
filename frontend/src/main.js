@@ -14,8 +14,9 @@ import VueAxios from 'vue-axios'
 import VueGoodTablePlugin from 'vue-good-table';
 import 'vue-good-table/dist/vue-good-table.css'
 import VueGoogleCharts from 'vue-google-charts'
+import VueFirestore from 'vue-firestore';
 
-
+Vue.use(VueFirestore);
 Vue.use(VueGoogleCharts)
 Vue.use(VueGoodTablePlugin);
 Vue.use(VueAxios, axios)
