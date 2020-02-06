@@ -14,11 +14,12 @@
                                     <div class="col-md-10 float-right">
                                         <h1 class="text-center "><u>Información Personal</u></h1>
                                         <p><strong>Datos: </strong> {{this.usuarios.nombre}} {{this.usuarios.apellido}}</p>
-                                        <p><strong>Teléfono: </strong>{{this.usuarios.telefono}}</p>
+                                        <input class="col-3" type="text" placeholder="Teléfono" name="telf" v-model.trim="telf">
                                         <p><strong>Cédula: </strong> {{this.usuarios.cedula}}</p>
                                         <p><strong>Edad: </strong>{{this.usuarios.edad}}</p>
                                         <p><strong>Correo: </strong>{{this.usuarios.correo}}</p>
                                         <p><strong>Dirección: </strong>{{this.usuarios.direccion}}</p>
+                                        <b-button type="submit" variant="primary" v-on:click="actualizar" >Actualizar</b-button>
                                     </div>
                                 </div>
                             </div>
@@ -39,8 +40,17 @@ export default {
     },data(){
         return{
             idUser: this.$route.params.idUser,
-            //clienteId: this.$route.params.clienteId,
-            usuarios:[]
+            usuarios:[],
+            /*idUsuario: this.usuarios.idUsuario,
+            cedula: this.usuarios.cedula,
+            nombre: this.usuarios.nombre,
+            apellido: this.usuarios.apellido,*/
+            telf:'',
+            /*edad: this.usuarios.edad,
+            direccion: this.usuarios.direccion,
+            correo: this.usuarios.correo,
+            usuario: this.usuarios.usuario,
+            contrasena: this.usuarios.contrasena*/
         }
 
     },
@@ -52,7 +62,34 @@ export default {
             try {
                 const response = await axios.get('http://localhost:8000/usuarios/'+this.idUser+"/")
                 this.usuarios=response.data;
+                this.telf=response.data.telefono;
                 //console.log(response.data);
+            }
+            catch(e){
+                console.log(e)
+            }
+        },
+        async actualizar() {
+            alert("Campo Actualizado")
+            try {
+                
+                const url = 'http://localhost:8000/usuarios/'+this.idUser+"/";
+                const response = await axios.put(url,
+                        {
+                            idUsuario: this.usuarios.idUsuario.toString(),
+                            cedula: this.usuarios.cedula.toString(),
+                            nombre: this.usuarios.nombre.toString(),
+                            apellido: this.usuarios.apellido.toString(),
+                            telefono:this.telf.toString(),
+                            edad: this.usuarios.edad.toString(),
+                            direccion: this.usuarios.direccion.toString(),
+                            correo: this.usuarios.correo.toString(),
+                            usuario: this.usuarios.usuario.toString(),
+                            contrasena: this.usuarios.contrasena.toString()
+                        },
+                        { headers: {'Content-Type': 'application/json'} }
+                    )
+                console.log(response.data);
             }
             catch(e){
                 console.log(e)
