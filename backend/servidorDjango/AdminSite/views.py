@@ -147,7 +147,7 @@ class PagoDetalle(APIView):
 
     def get_object(self, pk):
         try:
-            return pago.objects.get(nombre=pk)
+            return pago.objects.get(id=pk)
         except pago.DoesNotExist:
             raise Http404
 

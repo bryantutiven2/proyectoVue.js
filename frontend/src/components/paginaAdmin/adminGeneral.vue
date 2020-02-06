@@ -23,10 +23,6 @@
                         
                         </li>
                         <li>
-                            <router-link class="nav-link text-uppercase text-expanded " to='/clienteAdmin'><i class="fas fa-users"></i>Cliente</router-link>
-                        
-                        </li>
-                        <li>
                             <router-link class="nav-link text-uppercase text-expanded " to='/reporteAdmin'><i class="fas fa-users"></i>Reporte</router-link>
                         
                         </li>

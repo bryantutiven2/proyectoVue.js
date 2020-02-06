@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import clienteGeneral from './clienteGeneral'
 export default {
     components:{
@@ -54,6 +55,64 @@ export default {
     data(){
         return{
             idUser: this.$route.params.idUser,
+            usuarios:[],
+            ventas:[],
+            pagos:[],
+            idCliente:'',
+            datos:[]
+        }
+    },created(){
+        this.cargar(),
+        this.cargarVentas()
+        this.cargarPagos ()
+    },
+    methods:{
+        async cargar() {
+            try {
+                const response = await axios.get('http://localhost:8000/usuarios/'+this.idUser+"/")
+                this.idCliente=response.data.idUsuario;
+                this.usuarios=response.data;
+            }
+            catch(e){
+                console.log(e)
+            }
+        },
+        async cargarVentas() {
+            try {
+                const response = await axios.get('http://localhost:8000/ventas',
+                        { headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'} } )
+                this.ventas=response.data;
+            }
+            catch(e){
+                console.log(e)
+            }
+        },
+        async cargarPagos() {
+            try {
+                const response = await axios.get('http://localhost:8000/pagos',
+                        { headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'} })
+                this.pagos=response.data;
+            }
+            catch(e){
+                console.log(e)
+            }
+        },
+        rellenarDatos(){
+            for(let venta of this.ventas){
+                let arreglo=[]
+                if(venta.idUsuario==this.idCliente){
+                    arreglo.push(venta.factura)
+                    arreglo.push(venta.total)
+                }
+                for(let pago of this.pagos){
+                    if(venta.idPago==pago.idPago){
+                        arreglo.push(pago.fechaHora)
+                    }
+                }
+                console.log(arreglo)
+                this.datos.push(arreglo)
+            }
+
         }
     }
 }

@@ -11,7 +11,6 @@ import compraCliente from './components/paginaCliente/compraCliente.vue'
 import perfilCliente from './components/paginaCliente/perfilCliente.vue'
 import estadisticasCliente from './components/paginaCliente/estadisticasCliente.vue'
 import Admin from './components/paginaAdmin/adminGeneral.vue'
-import clienteAdmin from './components/paginaAdmin/clienteAdmin.vue'
 import estadisticasAdmin from './components/paginaAdmin/estadisticasAdmin.vue'
 import productosAdmin from './components/paginaAdmin/productosAdmin.vue'
 import reporteAdmin from './components/paginaAdmin/reporteAdmin.vue'
@@ -59,11 +58,6 @@ export default new Router({
             path: '/admin',
             name: 'admin',
             component: Admin
-        },
-        {
-            path: '/clienteAdmin',
-            name: 'clienteAdmin',
-            component: clienteAdmin
         },
         {
             path: '/estadisticasAdmin',
