@@ -46,7 +46,7 @@ export default {
     },created(){
         this.cargar(),
         this.cargarVentas()
-        this.cargarPagos ()
+        //this.cargarPagos ()
         //this.rellenarDatos()
     },
     methods:{

@@ -21,14 +21,14 @@
             <router-link class="nav-link text-uppercase text-expanded " to="/productos">Productos</router-link>
           </li>
           <li class="nav-item px-lg-4">
-            <router-link class="nav-link text-uppercase text-expanded " to="/iniciarSesion">Iniciar Sesión</router-link>
+            <button class="nav-link text-uppercase text-expanded " type="button" @click="redireccionar()">Iniciar Sesión</button>
           </li>
           <li class="nav-item px-lg-4">
             <router-link class="nav-link text-uppercase text-expanded " to='/registrar'>Registrar</router-link>
           </li>
-          <li class="nav-item px-lg-4">
+          <!--<li class="nav-item px-lg-4">
             <router-link class="nav-link text-uppercase text-expanded " to='/ventasAdmin'>Admin</router-link>
-          </li>
+          </li>-->
         </ul>
       </div>
     </div>
@@ -41,6 +41,24 @@ export default {
       return{
         
       }
+    },
+    methods:{
+      redireccionar(){
+        var cookies = null;
+        cookies = localStorage.getItem("user");
+        if(cookies != null){
+              if(cookies == 'admin'){
+                  this.$router.push("/ventasAdmin") 
+              }
+              else{
+                this.$router.push("/perfilCliente/"+cookies+"/") 
+              }
+              
+          }
+          else{
+            this.$router.push("/iniciarSesion") 
+          }
+    }
     }
 }
 </script>

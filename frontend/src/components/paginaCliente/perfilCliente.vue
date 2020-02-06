@@ -39,7 +39,7 @@ export default {
         clienteGeneral
     },data(){
         return{
-            idUser: this.$route.params.idUser,
+            idUser: localStorage.getItem('user'),
             usuarios:[],
             /*idUsuario: this.usuarios.idUsuario,
             cedula: this.usuarios.cedula,

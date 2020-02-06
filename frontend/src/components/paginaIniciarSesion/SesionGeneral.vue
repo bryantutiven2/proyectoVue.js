@@ -22,10 +22,6 @@
                             <input type="submit" id="iniciar-sesion" value="Iniciar Sesión" class="btn btn-success btn-lg-1 col-sm-7" >
                         </div>
                     </form>
-                    <pre>
-                        {{$data.user}}
-                        {{$data.clave}}
-                    </pre>
                 </div>
             </section>
         </div>
@@ -57,13 +53,25 @@
             this.cargar()
         },
         mounted() {
-            
+            if(localStorage.user){
+                this.user = localStorage.user;
+            }
+            if(localStorage.clave){
+                this.clave = localStorage.clave;
+            }
         }, 
         methods:{
             redirigirVentana(){
+                if(this.user=="admin" && this.clave=="admin"){
+                    localStorage.user = 'admin';
+                    localStorage.clave = 'admin';
+                    this.$router.push("/ventasAdmin")
+                }   
                 let bandera=false
                 for (let usuario of this.usuarios){
                     if(usuario.usuario== this.user && usuario.contrasena==this.clave){
+                        localStorage.user = this.user;
+                        localStorage.clave = this.clave;
                         console.log(usuario.usuario)
                         console.log(usuario.edad)
                         bandera=true
@@ -72,7 +80,7 @@
                 }
                 if(!bandera)
                     alert('Usuario no válido')
-                               
+                            
             },
             async cargar () {
                 try {

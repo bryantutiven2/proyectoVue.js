@@ -47,7 +47,9 @@
                                         </div>
                                         <div class="content">
                                             <h4>Magic Pills</h4>
+                                            <button v-on:click="di('Cerraste sesión')"><i class="fas fa-sign-out-alt" ></i>Cerrar Sesión</button>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +63,14 @@
 
 <script>
     export default {
-
+        methods:{            
+            di: function (mensaje) {
+                alert(mensaje)
+                this.$router.push("/iniciarSesion")
+                localStorage.removeItem("user") 
+                localStorage.removeItem("clave") 
+            }
+        }
     }
 </script>
 

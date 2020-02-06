@@ -70,7 +70,9 @@
         methods:{            
             di: function (mensaje) {
                 alert(mensaje)
-                this.$router.push("/iniciarSesion") 
+                this.$router.push("/iniciarSesion")
+                localStorage.removeItem("user") 
+                localStorage.removeItem("clave") 
             }
         }
     }

@@ -20,6 +20,10 @@
                                     <div id= "conte2">
                                           <estadisitcaTop />      
                                     </div>
+                                    <br>
+                                    <div >
+                                          <estadistica3 />    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -33,12 +37,14 @@
 <script>
 import estadisticaPago from './estadisticas/estadisitcaPagos'
 import estadisitcaTop from './estadisticas/estadisticasTop'
+import estadistica3 from './estadisticas/estadisticav'
 import adminGeneral from './adminGeneral'
 export default {
     components:{
         adminGeneral,
         estadisticaPago,
-        estadisitcaTop
+        estadisitcaTop,
+        estadistica3
     }
 }
 </script>
