@@ -5,41 +5,19 @@
             <div class="main-content">
                 <!-- Aqui va el contenido-->
                 <div class="section__content section__content--p30">
-                        <div class="container-fluid">
-                            <h1 class="text-center col-md-12" ><u>Compras</u></h1>
-                            <div class="row text-justify compras ">
-                                <div class="col-md-3 bg-info m-1 rounded" id="compra1">
-                                    <p>Fecha: 2/10/2019</p>
-                                    <p>Productos:</p>
-                                    <p>Paracetamol 0.50</p>
-                                    <p>Ibuprofeno 2.50</p>
-                                    <p>Calcibon 1.50</p>
-                                </div>
-                                <div class="col-md-3 bg-info m-1 rounded" id="compra2">
-                                    <p>Fecha: 4/10/2019</p>
-                                    <p>Productos:</p>
-                                    <p>Paracetamol 0.60</p>
-                                    <p>Ibuprofeno 2.50</p>
-                                    <p>Calcibon 1.50</p>
-                                </div>
-                                <div class="col-md-3 bg-info m-1 rounded" id="compra3">
-                                    <p>Fecha: 1/10/2018</p>
-                                    <p>Productos:</p>
-                                    <p>Paracetamol 0.60</p>
-                                    <p>Ibuprofeno 2.50</p>
-                                    <p>Calcibon 1.50</p>
-                                </div>
-                                <div class="col-md-3 bg-info m-1 rounded" id="compra4">
-                                    <p>Fecha: 1/10/2018</p>
-                                    <p>Productos:</p>
-                                    <p>Paracetamol 0.60</p>
-                                    <p>Ibuprofeno 2.50</p>
-                                    <p>Calcibon 1.50</p>
-                                </div>
-                            </div>
+                    <div class="container-fluid">
+                        <h1 class="text-center col-md-12" ><u>Compras</u></h1>                            
+                        <div class="row text-justify compras ">
+                            <div class="text-center m-auto" v-if="bandera"><strong>NO HAY COMPRAS REGISTRADAS</strong></div>
+                            <div v-else class="mx-auto my-2 col-lg-5 col-md-2 border border-primary bg-info" v-for="(desarrollador, desarrolladorID) in datos" v-bind:key="desarrolladorID" id="equipoD1">  
+                                                
+                            
+                            <p v-if="desarrollador.length>1" >Número de factura: {{desarrollador[1]}}</p>  
+                            <p v-if="desarrollador.length>1">Total: {{desarrollador[2]}}</p>  
+                        </div>                                
                         </div>
+                    </div>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -48,6 +26,7 @@
 <script>
 import axios from 'axios'
 import clienteGeneral from './clienteGeneral'
+
 export default {
     components:{
         clienteGeneral
@@ -57,14 +36,18 @@ export default {
             idUser: this.$route.params.idUser,
             usuarios:[],
             ventas:[],
-            pagos:[],
             idCliente:'',
-            datos:[]
+            datos:[],
+            bandera:false,
+            headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': false,
+                        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'}        
         }
     },created(){
         this.cargar(),
         this.cargarVentas()
         this.cargarPagos ()
+        //this.rellenarDatos()
     },
     methods:{
         async cargar() {
@@ -79,40 +62,28 @@ export default {
         },
         async cargarVentas() {
             try {
-                const response = await axios.get('http://localhost:8000/ventas',
-                        { headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'} } )
-                this.ventas=response.data;
-            }
-            catch(e){
-                console.log(e)
-            }
-        },
-        async cargarPagos() {
-            try {
-                const response = await axios.get('http://localhost:8000/pagos',
-                        { headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'} })
-                this.pagos=response.data;
-            }
-            catch(e){
-                console.log(e)
-            }
-        },
-        rellenarDatos(){
-            for(let venta of this.ventas){
-                let arreglo=[]
-                if(venta.idUsuario==this.idCliente){
-                    arreglo.push(venta.factura)
-                    arreglo.push(venta.total)
-                }
-                for(let pago of this.pagos){
-                    if(venta.idPago==pago.idPago){
-                        arreglo.push(pago.fechaHora)
+                const response = await axios.get('http://localhost:8000/ventas', this.headers  )
+                this.ventas=response.data;                
+                for(let venta of this.ventas){
+                    var d=[]
+                    if(venta.idUsuario==this.idCliente){
+                        d.push(venta.idUsuario)
+                        d.push(venta.factura)
+                        d.push(venta.total)
                     }
+                    this.datos.push(d)
                 }
-                console.log(arreglo)
-                this.datos.push(arreglo)
             }
-
+            catch(e){
+                console.log(e)
+            }
+        },
+        validarDatos(){
+            let data = this.datos
+            for(var i=0; i < data.length; i++){
+                if(data[i][0].length==1)
+                    this.bandera=true
+            }
         }
     }
 }
