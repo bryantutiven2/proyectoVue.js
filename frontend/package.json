@@ -18,7 +18,7 @@
     "emailjs-com": "^2.4.1",
     "google-maps-api-loader": "^1.1.1",
     "hooper": "^0.3.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jwt-decode": "^2.2.0",
     "linechart": "^2.0.0",
     "require-context": "^1.1.0",
